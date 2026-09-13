@@ -14,8 +14,9 @@ except:
 
 try:
     import simdna  # noqa: F401
+    from simdna import synthetic  # noqa: F401
     has_simdna = True
-except ModuleNotFoundError:
+except ImportError:
     has_simdna = False
 
 from deepchem.metrics.genomic_metrics import get_motif_scores
