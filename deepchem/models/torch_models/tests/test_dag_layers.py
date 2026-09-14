@@ -61,6 +61,20 @@ def test_DAG_gather_normal_initializers(init):
 
 
 @pytest.mark.torch
+def test_DAG_layer_invalid_init():
+    """Test that an unsupported init string still raises ValueError."""
+    with pytest.raises(ValueError):
+        dc.models.torch_models.DAGLayer(init="unsupported")
+
+
+@pytest.mark.torch
+def test_DAG_gather_invalid_init():
+    """Test that an unsupported init string still raises ValueError."""
+    with pytest.raises(ValueError):
+        dc.models.torch_models.DAGGather(init="unsupported")
+
+
+@pytest.mark.torch
 def test_DAG_gather():
     """Test invoking DAGGather."""
     np.random.seed(123)
